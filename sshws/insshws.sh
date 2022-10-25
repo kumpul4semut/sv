@@ -3,15 +3,15 @@
 
 cd
 
-wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/dugong-lewat/node/main/sshws/dropbear-ws.py
-wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/dugong-lewat/node/main/sshws/ws-stunnel
+wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/nanotechid/sv/script/sshws/dropbear-ws.py
+wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/nanotechid/sv/script/sshws/ws-stunnel
 
 chmod +x /usr/local/bin/ws-dropbear
 chmod +x /usr/local/bin/ws-stunnel
 
-wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/dugong-lewat/node/main/sshws/service-wsdropbear && chmod +x /etc/systemd/system/ws-dropbear.service
+wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/nanotechid/sv/script/sshws/service-wsdropbear && chmod +x /etc/systemd/system/ws-dropbear.service
 
-wget -O /etc/systemd/system/ws-stunnel.service https://raw.githubusercontent.com/dugong-lewat/node/main/sshws/ws-stunnel.service && chmod +x /etc/systemd/system/ws-stunnel.service
+wget -O /etc/systemd/system/ws-stunnel.service https://raw.githubusercontent.com/nanotechid/sv/script/sshws/ws-stunnel.service && chmod +x /etc/systemd/system/ws-stunnel.service
 
 systemctl daemon-reload
 systemctl enable ws-dropbear.service
