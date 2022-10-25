@@ -19,7 +19,7 @@ commonname=none
 email=none
 
 # simple password minimal
-curl -sS https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
+curl -sS https://raw.githubusercontent.com/nanotechid/sv/script/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -127,13 +127,13 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/nginx.conf"
 mkdir -p /home/vps/public_html
 /etc/init.d/nginx restart
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/newudpgw"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/newudpgw"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -248,13 +248,13 @@ echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 # banner /etc/issue.net
 sleep 1
 echo -e "[ ${green}INFO$NC ] Settings banner"
-wget -q -O /etc/issue.net "https://raw.githubusercontent.com/dugong-lewat/node/main/zero/banner/issue.net"
+wget -q -O /etc/issue.net "https://raw.githubusercontent.com/nanotechid/sv/script/rex/banner/issue.net"
 chmod +x /etc/issue.net
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 #install bbr dan optimasi kernel
-wget https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+wget https://raw.githubusercontent.com/nanotechid/sv/script/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 
 # blokir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
@@ -276,49 +276,49 @@ netfilter-persistent reload
 # download script
 cd /usr/bin
 # menu
-wget -O menu "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/menu.sh"
-wget -O m-vmess "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/m-vmess.sh"
-wget -O m-vless "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/m-vless.sh"
-wget -O running "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/running.sh"
-wget -O clearcache "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/clearcache.sh"
-wget -O m-ssws "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/m-ssws.sh"
-wget -O m-trojan "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/m-trojan.sh"
+wget -O menu "https://raw.githubusercontent.com/nanotechid/sv/script/menu/menu.sh"
+wget -O m-vmess "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-vmess.sh"
+wget -O m-vless "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-vless.sh"
+wget -O running "https://raw.githubusercontent.com/nanotechid/sv/script/menu/running.sh"
+wget -O clearcache "https://raw.githubusercontent.com/nanotechid/sv/script/menu/clearcache.sh"
+wget -O m-ssws "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-ssws.sh"
+wget -O m-trojan "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-trojan.sh"
 
 # menu ssh ovpn
-wget -O m-sshovpn "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/m-sshovpn.sh"
-wget -O usernew "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/trial.sh"
-wget -O renew "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/renew.sh"
-wget -O hapus "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/hapus.sh"
-wget -O cek "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/cek.sh"
-wget -O member "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/member.sh"
-wget -O delete "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/delete.sh"
-wget -O autokill "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/autokill.sh"
-wget -O ceklim "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/ceklim.sh"
-wget -O tendang "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/tendang.sh"
-
+wget -O m-sshovpn "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-sshovpn.sh"
+wget -O usernew "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/trial.sh"
+wget -O renew "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/renew.sh"
+wget -O hapus "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/hapus.sh"
+wget -O cek "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/cek.sh"
+wget -O member "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/member.sh"
+wget -O delete "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/delete.sh"
+wget -O autokill "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/autokill.sh"
+wget -O ceklim "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/ceklim.sh"
+wget -O tendang "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/tendang.sh"
+.
 # menu system
-wget -O m-system "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/m-system.sh"
-wget -O m-domain "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/m-domain.sh"
-wget -O add-host "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/add-host.sh"
-wget -O port-change "https://raw.githubusercontent.com/dugong-lewat/node/main/port/port-change.sh"
-wget -O certv2ray "https://raw.githubusercontent.com/dugong-lewat/node/main/xray/certv2ray.sh"
-wget -O m-webmin "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/m-webmin.sh"
-wget -O speedtest "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/speedtest_cli.py"
-wget -O auto-reboot "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/auto-reboot.sh"
-wget -O restart "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/restart.sh"
-wget -O bw "https://raw.githubusercontent.com/dugong-lewat/node/main/menu/bw.sh"
+wget -O m-system "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-system.sh"
+wget -O m-domain "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-domain.sh"
+wget -O add-host "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/add-host.sh"
+wget -O port-change "https://raw.githubusercontent.com/nanotechid/sv/script/port/port-change.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/nanotechid/sv/script/xray/certv2ray.sh"
+wget -O m-webmin "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-webmin.sh"
+wget -O speedtest "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/speedtest_cli.py"
+wget -O auto-reboot "https://raw.githubusercontent.com/nanotechid/sv/script/menu/auto-reboot.sh"
+wget -O restart "https://raw.githubusercontent.com/nanotechid/sv/script/menu/restart.sh"
+wget -O bw "https://raw.githubusercontent.com/nanotechid/sv/script/menu/bw.sh"
 
 # change port
-wget -O port-ssl "https://raw.githubusercontent.com/dugong-lewat/node/main/port/port-ssl.sh"
-wget -O port-ovpn "https://raw.githubusercontent.com/dugong-lewat/node/main/port/port-ovpn.sh"
-wget -O port-tr "https://raw.githubusercontent.com/dugong-lewat/node/main/port/port-tr.sh"
+wget -O port-ssl "https://raw.githubusercontent.com/nanotechid/sv/script/port/port-ssl.sh"
+wget -O port-ovpn "https://raw.githubusercontent.com/nanotechid/sv/script/port/port-ovpn.sh"
+wget -O port-tr "https://raw.githubusercontent.com/nanotechid/sv/script/port/port-tr.sh"
 
 
-wget -O xp "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/xp.sh"
-wget -O init "https://raw.githubusercontent.com/dugong-lewat/node/main/init.sh"
+wget -O xp "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/xp.sh"
+wget -O init "https://raw.githubusercontent.com/nanotechid/sv/script/init.sh"
 
-wget -O sshws "https://raw.githubusercontent.com/dugong-lewat/node/main/ssh/sshws.sh"
+wget -O sshws "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/sshws.sh"
 
 chmod +x menu
 chmod +x m-vmess
