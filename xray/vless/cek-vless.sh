@@ -17,8 +17,6 @@ IZIN=$( curl ipinfo.io/ip | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
 echo -e "${NC}${GREEN}Permission Accepted...${NC}"
 else
-echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Fuck You!!"
 exit 0
 fi
 clear
@@ -60,7 +58,6 @@ oth=$(cat /tmp/other.txt | sort | uniq | nl)
 echo "other";
 echo "$oth";
 echo "----------------------------------------"
-echo "SCRIPT ENVY VPN"
 rm -rf /tmp/other.txt
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
