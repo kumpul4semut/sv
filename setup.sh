@@ -174,8 +174,8 @@ exit 0
 fi
 sleep 3
 
-mkdir -p /var/lib/SIJA >/dev/null 2>&1
-echo "IP=" >> /var/lib/SIJA/ipvps.conf
+mkdir -p /var/lib >/dev/null 2>&1
+echo "IP=" >> /var/lib/ipvps.conf
 
 echo ""
 wget -q https://raw.githubusercontent.com/dugong-lewat/node/main/tools.sh;chmod +x tools.sh;./tools.sh
@@ -183,18 +183,18 @@ rm tools.sh
 clear
 yellow "Tambah domain anda"
 echo " "
-read -rp "Input ur domain : " -e pp
-    if [ -z $pp ]; then
+read -rp "Input ur domain : " -e dns
+    if [ -z $dns ]; then
         echo -e "
         Nothing input for domain!
         Then a random domain will be created"
     else
-        echo "$pp" > /root/scdomain
-	echo "$pp" > /etc/xray/scdomain
-	echo "$pp" > /etc/xray/domain
-	echo "$pp" > /etc/v2ray/domain
-	echo $pp > /root/domain
-        echo "IP=$pp" > /var/lib/SIJA/ipvps.conf
+        echo "$dns" > /root/scdomain
+	echo "$dns" > /etc/xray/scdomain
+	echo "$dns" > /etc/xray/domain
+	echo "$dns" > /etc/v2ray/domain
+	echo $dns > /root/domain
+        echo "IP=$dns" > /var/lib/ipvps.conf
     fi
     
 #install ssh ovpn
@@ -250,8 +250,6 @@ gg="AM"
 fi
 curl -sS ifconfig.me > /etc/myipvps
 echo " "
-echo "=====================-[ PENTAGON ]-===================="
-echo ""
 echo "------------------------------------------------------------"
 echo ""
 echo ""
@@ -289,8 +287,6 @@ echo "   - Full Orders For Various Services" | tee -a log-install.txt
 echo ""
 echo ""
 echo "------------------------------------------------------------"
-echo ""
-echo "===============-[ PENTAGON ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
