@@ -15,9 +15,6 @@ elif [[ -e /etc/centos-release ]]; then
 	OS=centos
 fi
 
-
-
-
 echo "Tools install...!"
 echo "Progress..."
 sleep 2
