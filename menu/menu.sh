@@ -64,7 +64,6 @@ cpu_usage+=" %"
 ISP=$(curl -s ipinfo.io/org?token=4c6f9da1e4484e)
 CITY=$(curl -s ipinfo.io/city?token=4c6f9da1e4484e)
 WKT=$(curl -s ipinfo.io/timezone?token=4c6f9da1e4484e)
-Asia/Jakarta)
 DAY=$(date +%A)
 DATE=$(date +%m/%d/%Y)
 DATE2=$(date -R)
