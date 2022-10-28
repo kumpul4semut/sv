@@ -111,6 +111,7 @@ echo -e "\E[44;1;39m        Xray/Vless Account        \E[0m" | tee -a /etc/log-c
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
+echo -e "Wildcard       : bug.com.${domain}" | tee -a /etc/log-create-user.log
 echo -e "port TLS       : $tls" | tee -a /etc/log-create-user.log
 echo -e "port none TLS  : $none" | tee -a /etc/log-create-user.log
 echo -e "id             : ${uuid}" | tee -a /etc/log-create-user.log
