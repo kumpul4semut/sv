@@ -86,8 +86,8 @@ sleep 1
 fi
 echo -e "[ ${green}INFO${NC} ] Starting renew cert... " 
 sleep 2
-cfkey=(cat /etc/cfkey)
-cfemail=(cat /etc/cfemail)
+cfkey=$(cat /etc/cfkey)
+cfemail=$(cat /etc/cfemail)
 export CF_Key=$cfkey
 export CF_Email=$cfemail
 /root/.acme.sh/acme.sh --set-default-ca --server zerossl
