@@ -1,4 +1,5 @@
 domain=$(cat /etc/xray/domain)
+dns=($cat /root/dns)
 tr="$(cat ~/log-install.txt | grep -w "Trojan WS" | cut -d: -f2|sed 's/ //g')"
 user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
 uuid=$(cat /proc/sys/kernel/random/uuid)
@@ -17,8 +18,8 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\E[0;41;36m           Trial Trojan           \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Remarks      : ${user}"
-echo -e "Host/IP      : ${domain}"
-echo -e "Wildcard     : bug.com.${domain}"
+echo -e "Host/IP      : ${dns}"
+echo -e "Wildcard     : bug.com.${dns}"
 echo -e "port         : ${tr}"
 echo -e "Key          : ${uuid}"
 echo -e "Path         : /trojan-ws"
