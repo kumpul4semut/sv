@@ -61,6 +61,7 @@ uptime="$(uptime -p | cut -d " " -f 2-10)"
 cpu_usage1="$(ps aux | awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')"
 cpu_usage="$((${cpu_usage1/\.*} / ${corediilik:-1}))"
 cpu_usage+=" %"
+DNS=$(cat /root/dns)
 ISP=$(curl -s ipinfo.io/org?token=4c6f9da1e4484e)
 CITY=$(curl -s ipinfo.io/city?token=4c6f9da1e4484e)
 WKT=$(curl -s ipinfo.io/timezone?token=4c6f9da1e4484e)
@@ -76,35 +77,35 @@ uram=$( free -m | awk 'NR==2 {print $3}' )
 fram=$( free -m | awk 'NR==2 {print $4}' )
 clear
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[33m Operating System     \e[0m:  "`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
-echo -e "\e[33m Total Amount Of RAM  \e[0m:  $tram MB"
-echo -e "\e[33m System Uptime        \e[0m:  $uptime "
+echo -e "\e[33m OPERATING SYSTEM     \e[0m:  "`hostnamectl | grep "OPERATING SYSTEM" | cut -d ' ' -f5-`	
+echo -e "\e[33m TOTAL AMOUNT OF RAM  \e[0m:  $tram MB"
+echo -e "\e[33m SYSTEM UPTIME        \e[0m:  $uptime "
 echo -e "\e[33m IP                   \e[0m:  $IPVPS"	
 echo -e "\e[33m ASN                  \e[0m:  $ISP"
-echo -e "\e[33m City                 \e[0m:  $CITY"
-echo -e "\e[32m Date                 \e[0m:  $DATE2"
-echo -e "\e[33m Domain               \e[0m:  $domain"	
+echo -e "\e[33m CITY                 \e[0m:  $CITY"
+echo -e "\e[32m DATE                 \e[0m:  $DATE2"
+echo -e "\e[33m DNS                  \e[0m:  $DNS"	
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "                 • SCRIPT MENU •                 "
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " [\e[36m•1\e[0m] SSH & OpenVPN Menu"
-echo -e " [\e[36m•2\e[0m] Vmess Menu"
-echo -e " [\e[36m•3\e[0m] Vless Menu"
-echo -e " [\e[36m•4\e[0m] Shadowsocks WS / GRPC"
-echo -e " [\e[36m•5\e[0m] Trojan WS / GRPC"
-echo -e " [\e[36m•6\e[0m] System Menu"
-echo -e " [\e[36m•7\e[0m] Status Service"
-echo -e " [\e[36m•8\e[0m] Change Timezone"
-echo -e " [\e[36m•9\e[0m] Clear RAM Cache"
+echo -e " [\e[36m•1\e[0m] SSH & OPENVPN MENU"
+echo -e " [\e[36m•2\e[0m] VMESS MENU"
+echo -e " [\e[36m•3\e[0m] VLESS MENU"
+echo -e " [\e[36m•4\e[0m] SHADOWSOCKS WS / GRPC"
+echo -e " [\e[36m•5\e[0m] TROJAN WS / GRPC"
+echo -e " [\e[36m•6\e[0m] SYSTEM MENU"
+echo -e " [\e[36m•7\e[0m] STATUS SERVICE"
+echo -e " [\e[36m•8\e[0m] CHANGE TIMEZONE"
+echo -e " [\e[36m•9\e[0m] CLEAR RAM CACHE"
 echo -e   ""
-echo -e   " Press x or [ Ctrl+C ] • To-Exit-Script"
+echo -e   " PRESS x OR [ Ctrl+C ] • TO-EXIT-SCRIPT"
 echo -e   ""
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " \e[33mNama Klien	\E[0m: $Name"
-echo -e " \e[33mExpired 	\E[0m: $Exp2"
+echo -e " \e[33mNAMA KLIEN	\E[0m: $Name"
+echo -e " \e[33mEXPIRED 	\E[0m: $Exp2"
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e   ""
-read -p " Select menu :  "  opt
+read -p " Select MENU :  "  opt
 echo -e   ""
 case $opt in
 1) clear ; m-sshovpn ;;
