@@ -52,7 +52,7 @@ v2ray-menu
 		fi
 	done
 
-dns=($cat /root/dns)
+dns=$(cat /root/dns)
 cipher="aes-128-gcm"
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
