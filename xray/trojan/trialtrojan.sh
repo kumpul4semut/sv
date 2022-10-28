@@ -1,5 +1,5 @@
 domain=$(cat /etc/xray/domain)
-dns=($cat /root/dns)
+dns=$(cat /root/dns)
 tr="$(cat ~/log-install.txt | grep -w "Trojan WS" | cut -d: -f2|sed 's/ //g')"
 user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
 uuid=$(cat /proc/sys/kernel/random/uuid)
