@@ -245,13 +245,6 @@ echo; echo 'Installation has completed.'
 echo 'Config file is at /usr/local/ddos/ddos.conf'
 echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 
-# banner /etc/issue.net
-#sleep 1
-#echo -e "[ ${green}INFO$NC ] Settings banner"
-#wget -q -O /etc/issue.net "https://raw.githubusercontent.com/nanotechid/sv/script/rex/banner/issue.net"
-#chmod +x /etc/issue.net
-#echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
-#sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 #install bbr dan optimasi kernel
 wget https://raw.githubusercontent.com/nanotechid/sv/script/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
@@ -299,6 +292,7 @@ wget -O tendang "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/tend
 .
 # menu system
 wget -O m-system "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-system.sh"
+wget -O m-cf "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-cf.sh"
 wget -O m-domain "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-domain.sh"
 wget -O add-host "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/add-host.sh"
 wget -O port-change "https://raw.githubusercontent.com/nanotechid/sv/script/port/port-change.sh"
@@ -341,6 +335,7 @@ chmod +x ceklim
 chmod +x tendang
 
 chmod +x m-system
+chmod +x m-cf
 chmod +x m-domain
 chmod +x add-host
 chmod +x port-change
