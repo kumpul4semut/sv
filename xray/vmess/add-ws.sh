@@ -71,7 +71,7 @@ domain=$(cat /etc/xray/domain)
 else
 domain=$IP
 fi
-
+dns=($cat /root/dns)
 tls="$(cat ~/log-install.txt | grep -w "Vmess TLS" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "Vmess None TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
@@ -162,8 +162,8 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\\E[0;41;36m        Xray/Vmess Account        \E[0m" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
-echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
-echo -e "Wildcard       : bug.com.${domain}" | tee -a /etc/log-create-user.log
+echo -e "Domain         : ${dns}" | tee -a /etc/log-create-user.log
+echo -e "Wildcard       : bug.com.${dns}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : ${none}" | tee -a /etc/log-create-user.log
 echo -e "Port  GRPC     : ${tls}" | tee -a /etc/log-create-user.log
