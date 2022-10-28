@@ -211,6 +211,7 @@ read -rp "Cloudflare Email : " -e cfemail
     fi
     fi
     fi
+    fi
 
 #install ssh ovpn
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
