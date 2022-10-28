@@ -71,7 +71,7 @@ domain=$(cat /etc/xray/domain)
 else
 domain=$IP
 fi
-dns=($cat /root/dns)
+dns=$(cat /root/dns)
 tls="$(cat ~/log-install.txt | grep -w "Vmess TLS" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "Vmess None TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
@@ -166,7 +166,7 @@ echo -e "Domain         : ${dns}" | tee -a /etc/log-create-user.log
 echo -e "Wildcard       : bug.com.${dns}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : ${none}" | tee -a /etc/log-create-user.log
-echo -e "Port GRPC      : ${tls}" | tee -a /etc/log-create-user.log
+echo -e "Port  GRPC     : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "id             : ${uuid}" | tee -a /etc/log-create-user.log
 echo -e "alterId        : 0" | tee -a /etc/log-create-user.log
 echo -e "Security       : auto" | tee -a /etc/log-create-user.log
