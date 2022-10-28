@@ -94,7 +94,7 @@ clear
 		fi
 	done
 
-dns=($cat /root/dns)
+dns=$(cat /root/dns)
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
