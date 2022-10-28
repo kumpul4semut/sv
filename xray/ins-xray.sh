@@ -54,13 +54,16 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 
 ## crt xray
 systemctl stop nginx
+export CF_Key=$cfkey
+export CF_Email=$cfemail
 mkdir /root/.acme.sh
 curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
 chmod +x /root/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --upgrade --auto-upgrade
-/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-/root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
-~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
+/root/.acme.sh/acme.sh --set-default-ca --server zerossl
+/root/.acme.sh/acme.sh --register-account -m email@bebas.com
+/root/.acme.sh/acme.sh --issue --dns dns_cf -d $domain -d *.$domain --server zerossl
+~/.acme.sh/acme.sh --installcert -d $domain --fullchain-file /etc/xray/xray.crt --key-file /etc/xray/xray.key
 
 # nginx renew ssl
 echo -n '#!/bin/bash
