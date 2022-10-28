@@ -86,9 +86,11 @@ sleep 1
 fi
 echo -e "[ ${green}INFO${NC} ] Starting renew cert... " 
 sleep 2
-/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-/root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
-~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
+export CF_Key=$cfkey
+export CF_Email=$cfemail
+/root/.acme.sh/acme.sh --set-default-ca --server zerossl
+/root/.acme.sh/acme.sh --issue --dns dns_cf -d $domain -d *.$domain --server zerossl
+~/.acme.sh/acme.sh --installcert -d $domain --fullchain-file /etc/xray/xray.crt --key-file /etc/xray/xray.key
 echo -e "[ ${green}INFO${NC} ] Renew cert done... " 
 sleep 2
 echo -e "[ ${green}INFO${NC} ] Starting service $Cek " 
