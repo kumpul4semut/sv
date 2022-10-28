@@ -94,6 +94,7 @@ clear
 		fi
 	done
 
+dns=($cat /root/dns)
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
@@ -110,8 +111,8 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\E[0;41;36m           TROJAN ACCOUNT           \E[0m" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
-echo -e "Host/IP        : ${domain}" | tee -a /etc/log-create-user.log
-echo -e "Wildcard       : bug.com.${domain}" | tee -a /etc/log-create-user.log
+echo -e "Host/IP        : ${dns}" | tee -a /etc/log-create-user.log
+echo -e "Wildcard       : bug.com.${dns}" | tee -a /etc/log-create-user.log
 echo -e "port           : 443" | tee -a /etc/log-create-user.log
 echo -e "Key            : ${uuid}" | tee -a /etc/log-create-user.log
 echo -e "Path           : /trojan-ws" | tee -a /etc/log-create-user.log
