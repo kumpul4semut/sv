@@ -89,7 +89,7 @@ sleep 2
 export CF_Key=$cfkey
 export CF_Email=$cfemail
 /root/.acme.sh/acme.sh --set-default-ca --server zerossl
-/root/.acme.sh/acme.sh --issue --dns dns_cf -d $domain -d *.$domain --server zerossl
+/root/.acme.sh/acme.sh --issue --dns dns_cf -d $domain -d *.$domain --server zerossl --debug
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchain-file /etc/xray/xray.crt --key-file /etc/xray/xray.key
 echo -e "[ ${green}INFO${NC} ] Renew cert done... " 
 sleep 2
