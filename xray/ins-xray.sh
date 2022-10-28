@@ -54,8 +54,8 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 
 ## crt xray
 systemctl stop nginx
-cfkey=(cat /etc/cfkey)
-cfemail=(cat /etc/cfemail)
+cfkey=$(cat /etc/cfkey)
+cfemail=$(cat /etc/cfemail)
 export CF_Key=$cfkey
 export CF_Email=$cfemail
 mkdir /root/.acme.sh
