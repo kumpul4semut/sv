@@ -183,10 +183,14 @@ rm tools.sh
 clear
 yellow "Tambah domain anda"
 echo " "
-read -rp "Input ur domain : " -e dns
+read -rp "Input DNS : " -e dns
+read -rp "Input Domain utama (contoh google.com, facebook.com, yahoo.com) : " -e domain
 read -rp "Cloudflare Key : " -e cfkey
 read -rp "Cloudflare Email : " -e cfemail
     if [ -z $dns ]; then
+        echo -e "Nothing input for DNS!"
+    else
+    if [ -z $domain ]; then
         echo -e "Nothing input for domain!"
     else
     if [ -z $cfkey ]; then
@@ -195,12 +199,13 @@ read -rp "Cloudflare Email : " -e cfemail
     if [ -z $cfemail ]; then
         echo -e "Nothing input for Cloudflare Email!"
     else
-        echo "$dns" > /root/scdomain
-	echo "$dns" > /etc/xray/scdomain
-	echo "$dns" > /etc/xray/domain
-	echo "$dns" > /etc/v2ray/domain
-	echo "$dns" > /root/domain
-  echo "IP=$dns" > /var/lib/ipvps.conf
+        echo "$domain" > /root/scdomain
+	echo "$domain" > /etc/xray/scdomain
+	echo "$domain" > /etc/xray/domain
+	echo "$domain" > /etc/v2ray/domain
+	echo "$domain" > /root/domain
+  echo "IP=$domain" > /var/lib/ipvps.conf
+  echo "$dns" > /root/dns
   echo "$cfkey" > /etc/cfkey
         echo "$cfemail" > /etc/cfemail
     fi
