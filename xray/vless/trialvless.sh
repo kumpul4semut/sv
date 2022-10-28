@@ -1,5 +1,5 @@
 domain=$(cat /etc/xray/domain)
-dns=($cat /root/dns)
+dns=$(cat /root/dns)
 tls="$(cat ~/log-install.txt | grep -w "Vless TLS" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "Vless None TLS" | cut -d: -f2|sed 's/ //g')"
 user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
