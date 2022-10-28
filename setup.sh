@@ -184,19 +184,29 @@ clear
 yellow "Tambah domain anda"
 echo " "
 read -rp "Input ur domain : " -e dns
+read -rp "Cloudflare Key : " -e cfkey
+read -rp "Cloudflare Email : " -e cfemail
     if [ -z $dns ]; then
-        echo -e "
-        Nothing input for domain!
-        Then a random domain will be created"
+        echo -e "Nothing input for domain!"
+    else
+    if [ -z $cfkey ]; then
+        echo -e "Nothing input for Cloudflare Key!"
+    else
+    if [ -z $cfemail ]; then
+        echo -e "Nothing input for Cloudflare Email!"
     else
         echo "$dns" > /root/scdomain
 	echo "$dns" > /etc/xray/scdomain
 	echo "$dns" > /etc/xray/domain
 	echo "$dns" > /etc/v2ray/domain
-	echo $dns > /root/domain
-        echo "IP=$dns" > /var/lib/ipvps.conf
+	echo "$dns" > /root/domain
+  echo "IP=$dns" > /var/lib/ipvps.conf
+  echo "$cfkey" > /etc/cfkey
+        echo "$cfemail" > /etc/cfemail
     fi
-    
+    fi
+    fi
+
 #install ssh ovpn
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH / WS               $NC"
