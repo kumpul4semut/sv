@@ -52,6 +52,7 @@ v2ray-menu
 		fi
 	done
 
+dns=($cat /root/dns)
 cipher="aes-128-gcm"
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
@@ -291,8 +292,8 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\\E[0;41;36m        Sodosok WS/GRPC Account      \E[0m" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Remarks      : ${user}" | tee -a /etc/log-create-user.log
-echo -e "Domain       : ${domain}" | tee -a /etc/log-create-user.log
-echo -e "Wildcard     : bug.com.${domain}" | tee -a /etc/log-create-user.log
+echo -e "Domain       : ${dns}" | tee -a /etc/log-create-user.log
+echo -e "Wildcard     : bug.com.${dns}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS     : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Port GRPC    : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Password     : ${uuid}" | tee -a /etc/log-create-user.log
