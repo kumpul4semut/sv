@@ -1,4 +1,5 @@
 domain=$(cat /etc/xray/domain)
+dns=($cat /root/dns)
 tls="$(cat ~/log-install.txt | grep -w "Vmess TLS" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "Vmess None TLS" | cut -d: -f2|sed 's/ //g')"
 user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
@@ -70,8 +71,8 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\E[0;41;36m       Trial Vmess      \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Remarks        : ${user}"
-echo -e "Domain         : ${domain}"
-echo -e "Wildcard       : bug.com.${domain}"
+echo -e "Domain         : ${dns}"
+echo -e "Wildcard       : bug.com.${dns}"
 echo -e "Port TLS       : ${tls}"
 echo -e "Port none TLS  : ${none}"
 echo -e "Port  GRPC     : ${tls}"
