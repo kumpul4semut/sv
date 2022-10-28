@@ -32,7 +32,6 @@ echo -e " [\e[36m•3\e[0m] Webmin Menu"
 echo -e " [\e[36m•4\e[0m] Speedtest VPS"
 echo -e " [\e[36m•5\e[0m] Set Auto Reboot"
 echo -e " [\e[36m•6\e[0m] Restart All Service"
-#echo -e " [\e[36m•7\e[0m] Change Banner"
 echo -e " [\e[36m•7\e[0m] Cek Bandwith"
 echo -e ""
 echo -e " [\e[31m•0\e[0m] \e[31mBACK TO MENU\033[0m"
@@ -50,7 +49,6 @@ case $opt in
 4) clear ; speedtest ; exit ;;
 5) clear ; auto-reboot ; exit ;;
 6) clear ; restart ; exit ;;
-#7) clear ; nano /etc/issue.net ; exit ;; # banner ssh
 7) clear ; bw ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
