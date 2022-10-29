@@ -1,5 +1,5 @@
 
-
+- Support Wildcard : Yes ✅
 - SSH Websocket TLS : 443
 - SSH Websocket none TLS : 80
 - Vmess WS+TLS : 443
