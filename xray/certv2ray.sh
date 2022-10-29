@@ -90,8 +90,8 @@ cfkey=$(cat /etc/cfkey)
 cfemail=$(cat /etc/cfemail)
 export CF_Key=$cfkey
 export CF_Email=$cfemail
-/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-/root/.acme.sh/acme.sh --issue --dns dns_cf -d $domain -d *.$domain --server letsencrypt -k ec-256 --debug
+/root/.acme.sh/acme.sh --set-default-ca --server google
+/root/.acme.sh/acme.sh --issue --dns dns_cf -d $domain -d *.$domain --server google -k ec-256 --debug
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchain-file /etc/xray/xray.crt --key-file /etc/xray/xray.key --ecc
 echo -e "[ ${green}INFO${NC} ] Renew cert done... " 
 sleep 2
