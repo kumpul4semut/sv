@@ -53,8 +53,8 @@ v2ray-menu
 	done
 
 dns=$(cat /root/dns)
-cipher="aes-128-gcm"
-uuid=$(cat /proc/sys/kernel/random/uuid)
+cipher="2022-blake3-aes-256-gcm"
+uuid=$(openssl rand -base64 32)
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#ssws$/a\### '"$user $exp"'\
