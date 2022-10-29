@@ -1,6 +1,7 @@
 domain=$(cat /etc/xray/domain)
 dns=$(cat /root/dns)
-tls="$(cat ~/log-install.txt | grep -w "Sodosok WS/GRPC" | cut -d: -f2|sed 's/ //g')"
+tls="$(cat ~/log-install.txt | grep -w "Shadowsocks WS" | cut -d: -f2|sed 's/ //g')"
+tls2="$(cat ~/log-install.txt | grep -w "Shadowsocks GRPC" | cut -d: -f2|sed 's/ //g')"
 user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
 cipher="aes-256-gcm"
 uuid=$(cat /proc/sys/kernel/random/uuid)
@@ -15,7 +16,7 @@ shadowsocks_base64=$(cat /tmp/log)
 echo -n "${shadowsocks_base64}" | base64 > /tmp/log1
 shadowsocks_base64e=$(cat /tmp/log1)
 shadowsockslink="ss://${shadowsocks_base64e}@isi_bug_disini:$tls?path=ss-ws&security=tls&host=${dns}&type=ws&sni=${dns}#${user}"
-shadowsockslink1="ss://${shadowsocks_base64e}@${dns}:$tls?mode=gun&security=tls&type=grpc&serviceName=ss-grpc&sni=bug.com#${user}"
+shadowsockslink1="ss://${shadowsocks_base64e}@${dns}:$tls2?mode=gun&security=tls&type=grpc&serviceName=ss-grpc&sni=bug.com#${user}"
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
 clear
@@ -26,9 +27,9 @@ echo -e "Remarks      : ${user}"
 echo -e "Domain       : ${dns}"
 echo -e "Wildcard     : [bug.com].${dns}"
 echo -e "Port TLS 	  : ${tls}"
-echo -e "Port GRPC    : ${tls}"
+echo -e "Port GRPC    : ${tls2}"
 echo -e "Password 	  : ${uuid}"
-echo -e "Cipher		    : aes-256-gcm"
+echo -e "Cipher		    : ${cipher}"
 echo -e "Network	    : ws/grpc"
 echo -e "Path 		    : /ss-ws"
 echo -e "ServiceName 	: ss-grpc"
