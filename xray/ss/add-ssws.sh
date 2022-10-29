@@ -29,7 +29,8 @@ else
 domain=$IP
 fi
 
-tls="$(cat ~/log-install.txt | grep -w "Sodosok WS/GRPC" | cut -d: -f2|sed 's/ //g')"
+tls="$(cat ~/log-install.txt | grep -w "Shadowsocks WS" | cut -d: -f2|sed 's/ //g')"
+tls2="$(cat ~/log-install.txt | grep -w "Shadowsocks GRPC" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\\E[0;41;36m      Add Shadowsocks Account    \E[0m"
@@ -66,7 +67,7 @@ shadowsocks_base64=$(cat /tmp/log)
 echo -n "${shadowsocks_base64}" | base64 > /tmp/log1
 shadowsocks_base64e=$(cat /tmp/log1)
 shadowsockslink="ss://${shadowsocks_base64e}@isi_bug_disini:$tls?path=ss-ws&security=tls&host=${dns}&type=ws&sni=${dns}#${user}"
-shadowsockslink1="ss://${shadowsocks_base64e}@${dns}:$tls?mode=gun&security=tls&type=grpc&serviceName=ss-grpc&sni=bug.com#${user}"
+shadowsockslink1="ss://${shadowsocks_base64e}@${dns}:$tls2?mode=gun&security=tls&type=grpc&serviceName=ss-grpc&sni=bug.com#${user}"
 systemctl restart xray
 rm -rf /tmp/log
 rm -rf /tmp/log1
@@ -289,7 +290,7 @@ systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "\\E[0;41;36m        Sodosok WS/GRPC Account      \E[0m" | tee -a /etc/log-create-user.log
+echo -e "\\E[0;41;36m        Shadowsocks Account      \E[0m" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Remarks      : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain       : ${dns}" | tee -a /etc/log-create-user.log
@@ -297,7 +298,7 @@ echo -e "Wildcard     : [bug.com].${dns}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS     : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Port GRPC    : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Password     : ${uuid}" | tee -a /etc/log-create-user.log
-echo -e "Cipher       : aes-256-gcm" | tee -a /etc/log-create-user.log
+echo -e "Cipher       : ${cipher}" | tee -a /etc/log-create-user.log
 echo -e "Network      : ws/grpc" | tee -a /etc/log-create-user.log
 echo -e "Path         : /ss-ws" | tee -a /etc/log-create-user.log
 echo -e "ServiceName  : ss-grpc" | tee -a /etc/log-create-user.log
