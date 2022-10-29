@@ -181,23 +181,35 @@ echo ""
 wget -q https://raw.githubusercontent.com/nanotechid/sv/script/tools.sh;chmod +x tools.sh;./tools.sh
 rm tools.sh
 clear
-yellow "Tambah domain anda"
+yellow "Tambah domain anda untuk issue cert"
 echo " "
-read -rp "Input DNS : " -e dns
-read -rp "Input Domain utama (contoh google.com, facebook.com, yahoo.com) : " -e domain
+read -rp "Input DNS (contoh maps.google.com) : " -e dns
+read -rp "Input Domain utama (contoh google.com, facebook.com) : " -e domain
 read -rp "Cloudflare Key : " -e cfkey
 read -rp "Cloudflare Email : " -e cfemail
+read -rp "Google Email : " -e gmail
+read -rp "ID Key Google : " -e keyid
+read -rp "Hmac Key Google : " -e hmac
     if [ -z $dns ]; then
         echo -e "Nothing input for DNS!"
     else
     if [ -z $domain ]; then
-        echo -e "Nothing input for domain!"
+        echo -e "Nothing input for Domain!"
     else
     if [ -z $cfkey ]; then
         echo -e "Nothing input for Cloudflare Key!"
     else
     if [ -z $cfemail ]; then
         echo -e "Nothing input for Cloudflare Email!"
+    else
+    if [ -z $gmail ]; then
+        echo -e "Nothing input for Google Email!"
+    else
+    if [ -z $keyid ]; then
+        echo -e "Nothing input for Key ID Google!"
+    else
+    if [ -z $hmac ]; then
+        echo -e "Nothing input for Hmac Key Google!"
     else
         echo "$domain" > /root/scdomain
 	echo "$domain" > /etc/xray/scdomain
@@ -207,7 +219,13 @@ read -rp "Cloudflare Email : " -e cfemail
   echo "IP=$domain" > /var/lib/ipvps.conf
   echo "$dns" > /root/dns
   echo "$cfkey" > /etc/cfkey
-        echo "$cfemail" > /etc/cfemail
+  echo "$cfemail" > /etc/cfemail
+  echo "$gmail" > /etc/gmail
+  echo "$keyid" > /etc/keyid
+        echo "$hmac" > /etc/hmac
+    fi
+    fi
+    fi
     fi
     fi
     fi
