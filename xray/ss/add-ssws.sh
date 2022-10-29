@@ -54,7 +54,7 @@ v2ray-menu
 	done
 
 dns=$(cat /root/dns)
-cipher="2022-blake3-aes-256-gcm"
+cipher="aes-256-gcm"
 uuid=$(cat /proc/sys/kernel/random/uuid)
 ss22=$(openssl rand -base64 32)
 read -p "Expired (days): " masaaktif
@@ -123,7 +123,7 @@ cat > /home/vps/public_html/ss-$user.txt <<-END
             "address": "$domain",
             "level": 8,
             "method": "$cipher",
-            "password": "$ss22",
+            "password": "$uuid",
             "port": 443
           }
         ]
@@ -232,7 +232,7 @@ cat > /home/vps/public_html/ss-$user.txt <<-END
             "address": "$domain",
             "level": 8,
             "method": "$cipher",
-            "password": "$ss22",
+            "password": "$uuid",
             "port": 443
           }
         ]
@@ -298,15 +298,15 @@ echo -e "Domain       : ${dns}" | tee -a /etc/log-create-user.log
 echo -e "Wildcard     : [bug.com].${dns}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS     : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Port GRPC    : ${tls}" | tee -a /etc/log-create-user.log
-echo -e "Password     : ${ss22}" | tee -a /etc/log-create-user.log
+echo -e "Password     : ${uuid}" | tee -a /etc/log-create-user.log
 echo -e "Cipher       : ${cipher}" | tee -a /etc/log-create-user.log
 echo -e "Network      : ws/grpc" | tee -a /etc/log-create-user.log
 echo -e "Path         : /ss-ws" | tee -a /etc/log-create-user.log
 echo -e "ServiceName  : ss-grpc" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "Link Ws 	: ${shadowsockslink}" | tee -a /etc/log-create-user.log
+echo -e "Link WS 	: ${shadowsockslink}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "Link Grpc 	: ${shadowsockslink1}" | tee -a /etc/log-create-user.log
+echo -e "Link gRPC 	: ${shadowsockslink1}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Link JSON 	: http://${domain}/ss-$user.txt" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
