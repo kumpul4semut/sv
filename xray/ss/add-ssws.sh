@@ -297,7 +297,7 @@ echo -e "Wildcard     : bug.com.${dns}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS     : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Port GRPC    : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Password     : ${uuid}" | tee -a /etc/log-create-user.log
-echo -e "Cipers       : aes-128-gcm" | tee -a /etc/log-create-user.log
+echo -e "Cipher       : 2022-blake3-aes-256-gcm" | tee -a /etc/log-create-user.log
 echo -e "Network      : ws/grpc" | tee -a /etc/log-create-user.log
 echo -e "Path         : /ss-ws" | tee -a /etc/log-create-user.log
 echo -e "ServiceName  : ss-grpc" | tee -a /etc/log-create-user.log
