@@ -182,6 +182,12 @@ wget -q https://raw.githubusercontent.com/nanotechid/sv/script/tools.sh;chmod +x
 rm tools.sh
 clear
 yellow "Tambah domain anda untuk issue cert"
+yellow "Bahan yang diperlukan"
+yellow "- Cloudflare Global Key"
+yellow "- Cloudflare Email"
+yellow "- Google Email"
+yellow "- ID Key Google"
+yellow "- Hmac Key Google"
 echo " "
 read -rp "Input DNS (contoh maps.google.com) : " -e dns
 read -rp "Input Domain utama (contoh google.com, facebook.com) : " -e domain
