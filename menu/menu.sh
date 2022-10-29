@@ -77,7 +77,7 @@ uram=$( free -m | awk 'NR==2 {print $3}' )
 fram=$( free -m | awk 'NR==2 {print $4}' )
 clear
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[33m OPERATING SYSTEM     \e[0m:  "`hostnamectl | grep "OPERATING SYSTEM" | cut -d ' ' -f5-`	
+echo -e "\e[33m OPERATING SYSTEM     \e[0m:  "`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
 echo -e "\e[33m TOTAL AMOUNT OF RAM  \e[0m:  $tram MB"
 echo -e "\e[33m SYSTEM UPTIME        \e[0m:  $uptime "
 echo -e "\e[33m IP                   \e[0m:  $IPVPS"	
