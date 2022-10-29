@@ -84,7 +84,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
 		echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-		echo -e "\E[44;1;39m      Add Xray/Vless Account      \E[0m"
+		echo -e "\E[44;1;39m      Add Vless Account      \E[0m"
 		echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 			echo ""
 			echo "A client with the specified name was already created, please choose another name."
@@ -108,7 +108,7 @@ vlesslink3="vless://${uuid}@${dns}:$tls?mode=gun&security=tls&encryption=none&ty
 systemctl restart xray
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "\E[44;1;39m        Xray/Vless Account        \E[0m" | tee -a /etc/log-create-user.log
+echo -e "\E[44;1;39m        Vless Account        \E[0m" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain         : ${dns}" | tee -a /etc/log-create-user.log
