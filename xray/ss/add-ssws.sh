@@ -53,8 +53,8 @@ v2ray-menu
 	done
 
 dns=$(cat /root/dns)
-cipher="2022-blake3-aes-256-gcm"
-uuid=$(openssl rand -base64 32)
+cipher="aes-256-gcm"
+uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#ssws$/a\### '"$user $exp"'\
@@ -293,11 +293,11 @@ echo -e "\\E[0;41;36m        Sodosok WS/GRPC Account      \E[0m" | tee -a /etc/l
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Remarks      : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain       : ${dns}" | tee -a /etc/log-create-user.log
-echo -e "Wildcard     : bug.com.${dns}" | tee -a /etc/log-create-user.log
+echo -e "Wildcard     : [bug.com].${dns}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS     : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Port GRPC    : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Password     : ${uuid}" | tee -a /etc/log-create-user.log
-echo -e "Cipher       : 2022-blake3-aes-256-gcm" | tee -a /etc/log-create-user.log
+echo -e "Cipher       : aes-256-gcm" | tee -a /etc/log-create-user.log
 echo -e "Network      : ws/grpc" | tee -a /etc/log-create-user.log
 echo -e "Path         : /ss-ws" | tee -a /etc/log-create-user.log
 echo -e "ServiceName  : ss-grpc" | tee -a /etc/log-create-user.log
