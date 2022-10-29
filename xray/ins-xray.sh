@@ -62,8 +62,8 @@ mkdir /root/.acme.sh
 curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
 chmod +x /root/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --upgrade --auto-upgrade
-/root/.acme.sh/acme.sh --set-default-ca --server zerossl
-/root/.acme.sh/acme.sh --register-account -m email@bebas.com
+/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+/root/.acme.sh/acme.sh --register-account -m gakpunya.tutorial@gmail.com
 /root/.acme.sh/acme.sh --issue --dns dns_cf -d $domain -d *.$domain --server zerossl -k ec-256 --debug
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchain-file /etc/xray/xray.crt --key-file /etc/xray/xray.key --ecc
 
