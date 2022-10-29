@@ -77,16 +77,16 @@ uram=$( free -m | awk 'NR==2 {print $3}' )
 fram=$( free -m | awk 'NR==2 {print $4}' )
 clear
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[33m OPERATING SYSTEM     \e[0m:  "`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
-echo -e "\e[33m TOTAL AMOUNT OF RAM  \e[0m:  $tram MB"
-echo -e "\e[33m SYSTEM UPTIME        \e[0m:  $uptime "
-echo -e "\e[33m IP                   \e[0m:  $IPVPS"	
-echo -e "\e[33m ASN                  \e[0m:  $ISP"
-echo -e "\e[33m CITY                 \e[0m:  $CITY"
-echo -e "\e[33m DATE                 \e[0m:  $DATE2"
-echo -e "\e[33m DNS                  \e[0m:  $DNS"	
+echo -e "\e[33m SYSTEM UPTIME \e[0m:  $uptime "
+echo -e "\e[33m OS            \e[0m:  "`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
+echo -e "\e[33m RAM           \e[0m:  $tram MB"
+echo -e "\e[33m IP            \e[0m:  $IPVPS"	
+echo -e "\e[33m ASN           \e[0m:  $ISP"
+echo -e "\e[33m CITY          \e[0m:  $CITY"
+echo -e "\e[33m DATE          \e[0m:  $DATE2"
+echo -e "\e[33m DNS           \e[0m:  $DNS"	
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "                 • SCRIPT MENU •                 "
+echo -e "                 • MENU •                 "
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " [\e[36m•1\e[0m] SSH & OPENVPN MENU"
 echo -e " [\e[36m•2\e[0m] VMESS MENU"
