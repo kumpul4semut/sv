@@ -2,8 +2,8 @@ domain=$(cat /etc/xray/domain)
 dns=$(cat /root/dns)
 tls="$(cat ~/log-install.txt | grep -w "Sodosok WS/GRPC" | cut -d: -f2|sed 's/ //g')"
 user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
-cipher="2022-blake3-aes-256-gcm"
-uuid=$(openssl rand -base64 32)
+cipher="aes-256-gcm"
+uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#ssws$/a\### '"$user $exp"'\
@@ -24,11 +24,11 @@ echo -e "\\E[0;41;36m        Trial Shadowsocks     \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Remarks      : ${user}"
 echo -e "Domain       : ${dns}"
-echo -e "Wildcard     : bug.com.${dns}"
+echo -e "Wildcard     : [bug.com].${dns}"
 echo -e "Port TLS 	  : ${tls}"
 echo -e "Port GRPC    : ${tls}"
 echo -e "Password 	  : ${uuid}"
-echo -e "Cipher		    : 2022-blake3-aes-256-gcm"
+echo -e "Cipher		    : aes-256-gcm"
 echo -e "Network	    : ws/grpc"
 echo -e "Path 		    : /ss-ws"
 echo -e "ServiceName 	: ss-grpc"
