@@ -2,8 +2,8 @@ domain=$(cat /etc/xray/domain)
 dns=$(cat /root/dns)
 tls="$(cat ~/log-install.txt | grep -w "Sodosok WS/GRPC" | cut -d: -f2|sed 's/ //g')"
 user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
-cipher="aes-128-gcm"
-uuid=$(cat /proc/sys/kernel/random/uuid)
+cipher="2022-blake3-aes-256-gcm"
+uuid=$(openssl rand -base64 32)
 masaaktif=1
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#ssws$/a\### '"$user $exp"'\
