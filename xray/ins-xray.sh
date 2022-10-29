@@ -82,6 +82,7 @@ if ! grep -q 'ssl_renew.sh' /var/spool/cron/crontabs/root;then (crontab -l;echo 
 
 # set uuid
 uuid=$(cat /proc/sys/kernel/random/uuid)
+ss22=$(openssl rand -base64 32)
 # xray config
 cat > /etc/xray/config.json << END
 {
@@ -168,8 +169,8 @@ cat > /etc/xray/config.json << END
         "settings": {
            "clients": [
            {
-           "method": "aes-128-gcm",
-          "password": "${uuid}"
+           "method": "2022-blake3-aes-256-gcm",
+          "password": "${ss22}"
 #ssws
            }
           ],
@@ -249,8 +250,8 @@ cat > /etc/xray/config.json << END
     "settings": {
         "clients": [
           {
-             "method": "aes-128-gcm",
-             "password": "${uuid}"
+             "method": "2022-blake3-aes-256-gcm",
+             "password": "${ss22}"
 #ssgrpc
            }
          ],
