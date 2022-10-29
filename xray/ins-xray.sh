@@ -168,8 +168,8 @@ cat > /etc/xray/config.json << END
         "settings": {
            "clients": [
            {
-           "method": "aes-256-gcm",
-          "password": "${uuid}"
+           "method": "2022-blake3-aes-256-gcm",
+          "password": "${ss22}"
 #ssws
            }
           ],
@@ -249,8 +249,8 @@ cat > /etc/xray/config.json << END
     "settings": {
         "clients": [
           {
-             "method": "aes-256-gcm",
-             "password": "${uuid}"
+             "method": "2022-blake3-aes-256-gcm",
+             "password": "${ss22}"
 #ssgrpc
            }
          ],
