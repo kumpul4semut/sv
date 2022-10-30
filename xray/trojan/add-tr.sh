@@ -121,13 +121,13 @@ echo -e "port           : 443" | tee -a /etc/log-create-user.log
 echo -e "Key            : ${uuid}" | tee -a /etc/log-create-user.log
 echo -e "Path           : /trojan-ws" | tee -a /etc/log-create-user.log
 echo -e "ServiceName    : trojan-grpc" | tee -a /etc/log-create-user.log
-echo -e "Flow           : xtls-rprx-direct" | tee -a /etc/log-create-user.log
+#echo -e "Flow           : xtls-rprx-direct" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Link WS        : ${trojanlink}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Link gRPC      : ${trojanlink1}" | tee -a /etc/log-create-user.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "Link XTLS      : ${trojanlink2}" | tee -a /etc/log-create-user.log
+#echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
+#echo -e "Link XTLS      : ${trojanlink2}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Expired On     : $exp" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
