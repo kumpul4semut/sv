@@ -248,17 +248,24 @@ cat > /etc/xray/config.json << END
       "protocol": "trojan",
       "settings": {
         "clients": [
-          {
-            "password":"${uuid}",
-            "flow": "xtls-rprx-direct"
+        {
+          "password":"${uuid}",
+          "flow": "xtls-rprx-direct"
 #trojanxtls
-          }
-        ]
-      },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "xtls"
         }
+       ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "xtls",
+        "xtlsSettings": {
+          "certificates": 
+          {
+            "certificateFile": "/etc/xray/xray.crt",
+            "keyFile": "/etc/xray/xray.key"
+          }
+        }
+      }
     },
    {
     "listen": "127.0.0.1",
