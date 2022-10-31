@@ -1,52 +1,4 @@
 #!/bin/bash
-dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
-biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
-#########################
-
-BURIQ () {
-    curl -sS https://raw.githubusercontent.com/nanotechid/sv/script/rex/vps > /root/tmp
-    data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
-    for user in "${data[@]}"
-    do
-    exp=( `grep -E "^### $user" "/root/tmp" | awk '{print $3}'` )
-    d1=(`date -d "$exp" +%s`)
-    d2=(`date -d "$biji" +%s`)
-    exp2=$(( (d1 - d2) / 86400 ))
-    if [[ "$exp2" -le "0" ]]; then
-    echo $user > /etc/.$user.ini
-    else
-    rm -f  /etc/.$user.ini > /dev/null 2>&1
-    fi
-    done
-    rm -f  /root/tmp
-}
-# https://raw.githubusercontent.com/nanotechid/sv/script/rex/vps 
-MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/nanotechid/sv/script/rex/vps | grep $MYIP | awk '{print $2}')
-echo $Name > /usr/local/etc/.$Name.ini
-CekOne=$(cat /usr/local/etc/.$Name.ini)
-
-Bloman () {
-if [ -f "/etc/.$Name.ini" ]; then
-CekTwo=$(cat /etc/.$Name.ini)
-    if [ "$CekOne" = "$CekTwo" ]; then
-        res="Expired"
-    fi
-else
-res="Permission Accepted..."
-fi
-}
-
-PERMISSION () {
-    MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/nanotechid/sv/script/rex/vps | awk '{print $4}' | grep $MYIP)
-    if [ "$MYIP" = "$IZIN" ]; then
-    Bloman
-    else
-    res="Permission Denied!"
-    fi
-    BURIQ
-}
 
 clear
 red='\e[1;31m'
@@ -86,33 +38,33 @@ touch /etc/v2ray/scdomain
 
 
 echo -e "[ ${tyblue}NOTES${NC} ] Before we go.. "
-sleep 1
+sleep .05
 echo -e "[ ${tyblue}NOTES${NC} ] I need check your headers first.."
-sleep 2
+sleep 0.5
 echo -e "[ ${green}INFO${NC} ] Checking headers"
-sleep 1
+sleep 0.5
 totet=`uname -r`
 REQUIRED_PKG="linux-headers-$totet"
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
 echo Checking for $REQUIRED_PKG: $PKG_OK
 if [ "" = "$PKG_OK" ]; then
-  sleep 2
+  sleep 0.5
   echo -e "[ ${yell}WARNING${NC} ] Try to install ...."
   echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
   apt-get --yes install $REQUIRED_PKG
-  sleep 1
+  sleep 0.5
   echo ""
-  sleep 1
+  sleep 0.5
   echo -e "[ ${tyblue}NOTES${NC} ] If error you need.. to do this"
-  sleep 1
+  sleep 0.5
   echo ""
-  sleep 1
+  sleep 0.5
   echo -e "[ ${tyblue}NOTES${NC} ] update & upgrade package"
-  sleep 1
+  sleep 0.5
   echo ""
-  sleep 1
+  sleep 0.5
   echo -e "[ ${tyblue}NOTES${NC} ] After update"
-  sleep 1
+  sleep 0.5
   echo -e "[ ${tyblue}NOTES${NC} ] Then run this script again"
   echo -e "[ ${tyblue}NOTES${NC} ] enter now"
   read
