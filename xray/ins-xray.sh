@@ -496,6 +496,28 @@ systemctl enable runn
 systemctl restart runn
 
 cd /usr/bin/
+# menu
+wget -O menu "https://raw.githubusercontent.com/nanotechid/sv/script/menu/menu.sh"
+wget -O m-vmess "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-vmess.sh"
+wget -O m-vless "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-vless.sh"
+wget -O running "https://raw.githubusercontent.com/nanotechid/sv/script/menu/running.sh"
+wget -O clearcache "https://raw.githubusercontent.com/nanotechid/sv/script/menu/clearcache.sh"
+wget -O m-ssws "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-ssws.sh"
+wget -O m-trojan "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-trojan.sh"
+
+# menu system
+wget -O m-system "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-system.sh"
+#wget -O m-cf "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-cf.sh"
+wget -O m-domain "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-domain.sh"
+wget -O add-host "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/add-host.sh"
+#wget -O port-change "https://raw.githubusercontent.com/nanotechid/sv/script/port/port-change.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/nanotechid/sv/script/xray/certv2ray.sh"
+wget -O m-webmin "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-webmin.sh"
+wget -O speedtest "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/speedtest_cli.py"
+wget -O auto-reboot "https://raw.githubusercontent.com/nanotechid/sv/script/menu/auto-reboot.sh"
+wget -O restart "https://raw.githubusercontent.com/nanotechid/sv/script/menu/restart.sh"
+wget -O bw "https://raw.githubusercontent.com/nanotechid/sv/script/menu/bw.sh"
+
 # vmess
 wget -O add-ws "https://raw.githubusercontent.com/nanotechid/sv/script/xray/vmess/add-ws.sh" && chmod +x add-ws
 wget -O trialvmess "https://raw.githubusercontent.com/nanotechid/sv/script/xray/vmess/trialvmess.sh" && chmod +x trialvmess
