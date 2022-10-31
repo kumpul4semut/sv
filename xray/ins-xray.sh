@@ -242,31 +242,6 @@ cat > /etc/xray/config.json << END
          }
       }
    },
-    {
-      "listen": "127.0.0.1",
-      "port": 34768,
-      "protocol": "trojan",
-      "settings": {
-        "clients": [
-        {
-          "password":"${uuid}",
-          "flow": "xtls-rprx-direct"
-#trojanxtls
-        }
-       ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "xtls",
-        "xtlsSettings": {
-          "certificates": 
-          {
-            "certificateFile": "/etc/xray/xray.crt",
-            "keyFile": "/etc/xray/xray.key"
-          }
-        }
-      }
-    },
    {
     "listen": "127.0.0.1",
     "port": "30310",
