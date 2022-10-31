@@ -82,6 +82,15 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
 netfilter-persistent reload
 
+# install webserver
+apt -y install nginx
+cd
+rm /etc/nginx/sites-enabled/default
+rm /etc/nginx/sites-available/default
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/nginx.conf"
+mkdir -p /home/vps/public_html
+/etc/init.d/nginx restart
+
 # install xray
 sleep 1
 echo -e "[ ${green}INFO$NC ] Downloading & Installing xray core"
