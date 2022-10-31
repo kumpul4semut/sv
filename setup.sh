@@ -238,12 +238,12 @@ read -rp "Hmac Key Google : " -e hmac
     fi
 
 #install ssh ovpn
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green      Install SSH / WS               $NC"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 2
-clear
-wget https://raw.githubusercontent.com/nanotechid/sv/script/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+#echo -e "$green      Install SSH / WS               $NC"
+#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+#sleep 2
+#clear
+#wget https://raw.githubusercontent.com/nanotechid/sv/script/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #Instal Xray
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green          Install XRAY              $NC"
@@ -251,7 +251,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 sleep 2
 clear
 wget https://raw.githubusercontent.com/nanotechid/sv/script/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
-wget https://raw.githubusercontent.com/nanotechid/sv/script/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+#wget https://raw.githubusercontent.com/nanotechid/sv/script/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
