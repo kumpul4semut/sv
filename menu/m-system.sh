@@ -27,7 +27,7 @@ echo -e "\E[0;100;33m          • SYSTEM MENU •          \E[0m"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 echo -e " [\e[36m•1\e[0m] Panel Domain"
-echo -e " [\e[36m•2\e[0m] Change Port All Account"
+#echo -e " [\e[36m•2\e[0m] Change Port All Account"
 echo -e " [\e[36m•3\e[0m] Webmin Menu"
 echo -e " [\e[36m•4\e[0m] Speedtest VPS"
 echo -e " [\e[36m•5\e[0m] Set Auto Reboot"
@@ -44,7 +44,7 @@ read -p " Select menu : " opt
 echo -e ""
 case $opt in
 1) clear ; m-domain ; exit ;;
-2) clear ; port-change ; exit ;;
+#2) clear ; port-change ; exit ;;
 3) clear ; m-webmin ; exit ;;
 4) clear ; speedtest ; exit ;;
 5) clear ; auto-reboot ; exit ;;
