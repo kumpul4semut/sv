@@ -88,15 +88,15 @@ echo -e "\e[33m DNS           \e[0m:  $DNS"
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "                 • MENU •                 "
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " [\e[36m•1\e[0m] SSH & OPENVPN MENU"
-echo -e " [\e[36m•2\e[0m] VMESS MENU"
-echo -e " [\e[36m•3\e[0m] VLESS MENU"
-echo -e " [\e[36m•4\e[0m] SHADOWSOCKS MENU"
-echo -e " [\e[36m•5\e[0m] TROJAN MENU"
-echo -e " [\e[36m•6\e[0m] SYSTEM MENU"
-echo -e " [\e[36m•7\e[0m] STATUS SERVICE"
-echo -e " [\e[36m•8\e[0m] CHANGE TIMEZONE"
-echo -e " [\e[36m•9\e[0m] CLEAR RAM CACHE"
+#echo -e " [\e[36m•1\e[0m] SSH & OPENVPN MENU"
+echo -e " [\e[36m•1\e[0m] VMESS MENU"
+echo -e " [\e[36m•2\e[0m] VLESS MENU"
+echo -e " [\e[36m•3\e[0m] SHADOWSOCKS MENU"
+echo -e " [\e[36m•4\e[0m] TROJAN MENU"
+echo -e " [\e[36m•5\e[0m] SYSTEM MENU"
+echo -e " [\e[36m•6\e[0m] STATUS SERVICE"
+echo -e " [\e[36m•7\e[0m] CHANGE TIMEZONE"
+echo -e " [\e[36m•8\e[0m] CLEAR RAM CACHE"
 echo -e   ""
 echo -e   " PRESS x OR [ Ctrl+C ] • TO-EXIT-SCRIPT"
 echo -e   ""
@@ -108,15 +108,15 @@ echo -e   ""
 read -p " Select MENU :  "  opt
 echo -e   ""
 case $opt in
-1) clear ; m-sshovpn ;;
-2) clear ; m-vmess ;;
-3) clear ; m-vless ;;
-4) clear ; m-ssws ;;
-5) clear ; m-trojan ;;
-6) clear ; m-system ;;
-7) clear ; running ;;
-8) clear ; dpkg-reconfigure tzdata ;;
-9) clear ; clearcache ;;
+#1) clear ; m-sshovpn ;;
+1) clear ; m-vmess ;;
+2) clear ; m-vless ;;
+3) clear ; m-ssws ;;
+4) clear ; m-trojan ;;
+5) clear ; m-system ;;
+6) clear ; running ;;
+7) clear ; dpkg-reconfigure tzdata ;;
+8) clear ; clearcache ;;
 x) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; menu ;;
 esac
