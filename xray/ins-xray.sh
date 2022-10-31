@@ -49,7 +49,7 @@ touch /var/log/xray/error.log
 touch /var/log/xray/access2.log
 touch /var/log/xray/error2.log
 # / / Ambil Xray Core Version Terbaru
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version 1.6.1
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version 1.6.2
 
 ## crt xray
 systemctl stop nginx
@@ -242,6 +242,36 @@ cat > /etc/xray/config.json << END
          }
       }
    },
+    {
+      "listen": "127.0.0.1",
+      "port": 21706,
+      "protocol": "trojan",
+      "settings": {
+        "clients": 
+          {
+            "password": "${uuid}",
+            "flow": "xtls-rprx-direct",
+            "email": "admin@xtls.my.id"
+#trojan-xtls
+          }
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "xtls",
+        "xtlsSettings": {
+          "alpn": [
+            "h2",
+            "http/1.1"
+          ],
+          "certificates": [
+            {
+              "certificateFile": "/etc/xray/xray.crt",
+              "keyFile": "/etc/xray/xray.key"
+            }
+          ]
+        }
+      }
+    },
    {
     "listen": "127.0.0.1",
     "port": "30310",
@@ -412,18 +442,6 @@ sed -i '$ iproxy_set_header Connection "upgrade";' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 
-sed -i '$ ilocation = /socks-ws' /etc/nginx/conf.d/xray.conf
-sed -i '$ i{' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_pass http://127.0.0.1:56234;' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_http_version 1.1;' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_set_header X-Real-IP \$remote_addr;' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_set_header Upgrade \$http_upgrade;' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_set_header Connection "upgrade";' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
-sed -i '$ i}' /etc/nginx/conf.d/xray.conf
-
 sed -i '$ ilocation = /trojan-ws' /etc/nginx/conf.d/xray.conf
 sed -i '$ i{' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
@@ -470,15 +488,6 @@ sed -i '$ igrpc_pass grpc://127.0.0.1:24456;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 
 sed -i '$ ilocation ^~ /vmess-grpc' /etc/nginx/conf.d/xray.conf
-sed -i '$ i{' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
-sed -i '$ igrpc_set_header X-Real-IP \$remote_addr;' /etc/nginx/conf.d/xray.conf
-sed -i '$ igrpc_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;' /etc/nginx/conf.d/xray.conf
-sed -i '$ igrpc_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
-sed -i '$ igrpc_pass grpc://127.0.0.1:31234;' /etc/nginx/conf.d/xray.conf
-sed -i '$ i}' /etc/nginx/conf.d/xray.conf
-
-sed -i '$ ilocation ^~ /socks-grpc' /etc/nginx/conf.d/xray.conf
 sed -i '$ i{' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
 sed -i '$ igrpc_set_header X-Real-IP \$remote_addr;' /etc/nginx/conf.d/xray.conf
