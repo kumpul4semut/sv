@@ -34,37 +34,6 @@ apt -y install chrony
 apt install zip -y
 #apt install curl pwgen openssl netcat cron -y
 
-# Edit file /etc/systemd/system/rc-local.service
-cat > /etc/systemd/system/rc-local.service <<-END
-[Unit]
-Description=/etc/rc.local
-ConditionPathExists=/etc/rc.local
-[Service]
-Type=forking
-ExecStart=/etc/rc.local start
-TimeoutSec=0
-StandardOutput=tty
-RemainAfterExit=yes
-SysVStartPriority=99
-[Install]
-WantedBy=multi-user.target
-END
-
-# nano /etc/rc.local
-cat > /etc/rc.local <<-END
-#!/bin/sh -e
-# rc.local
-# By default this script does nothing.
-exit 0
-END
-
-# Ubah izin akses
-chmod +x /etc/rc.local
-
-# enable rc local
-systemctl enable rc-local
-systemctl start rc-local.service
-
 # install fail2ban
 apt -y install fail2ban
 
@@ -423,8 +392,6 @@ cat > /etc/xray/config.json << END
   }
 }
 END
-rm -rf /etc/systemd/system/xray.service.d
-rm -rf /etc/systemd/system/xray@.service
 cat <<EOF> /etc/systemd/system/xray.service
 Description=Xray Service
 Documentation=https://github.com/xtls
@@ -591,6 +558,13 @@ wget -O running "https://raw.githubusercontent.com/nanotechid/sv/script/menu/run
 wget -O clearcache "https://raw.githubusercontent.com/nanotechid/sv/script/menu/clearcache.sh"
 wget -O m-ssws "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-ssws.sh"
 wget -O m-trojan "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-trojan.sh"
+chmod +x menu
+chmod +x m-vmess
+chmod +x m-vless
+chmod +x running
+chmod +x clearcache
+chmod +x m-ssws
+chmod +x m-trojan
 
 # menu system
 wget -O m-system "https://raw.githubusercontent.com/nanotechid/sv/script/menu/m-system.sh"
@@ -602,6 +576,15 @@ wget -O speedtest "https://raw.githubusercontent.com/nanotechid/sv/script/ssh/sp
 wget -O auto-reboot "https://raw.githubusercontent.com/nanotechid/sv/script/menu/auto-reboot.sh"
 wget -O restart "https://raw.githubusercontent.com/nanotechid/sv/script/menu/restart.sh"
 wget -O bw "https://raw.githubusercontent.com/nanotechid/sv/script/menu/bw.sh"
+chmod +x m-system
+chmod +x m-domain
+chmod +x add-host
+chmod +x certv2ray
+chmod +x m-webmin
+chmod +x speedtest
+chmod +x auto-reboot
+chmod +x restart
+chmod +x bw
 
 # vmess
 wget -O add-ws "https://raw.githubusercontent.com/nanotechid/sv/script/xray/vmess/add-ws.sh" && chmod +x add-ws
