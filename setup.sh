@@ -81,7 +81,6 @@ else
   clear
 fi
 
-
 secs_to_human() {
     echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
 }
@@ -107,9 +106,6 @@ chmod 644 /root/.profile
 
 mkdir -p /var/lib >/dev/null 2>&1
 echo "IP=" >> /var/lib/ipvps.conf
-
-#wget -q https://raw.githubusercontent.com/nanotechid/sv/script/tools.sh;chmod +x tools.sh;./tools.sh
-rm tools.sh
 clear
 yellow "Tambah domain anda untuk issue cert"
 yellow "Bahan yang diperlukan"
@@ -167,13 +163,6 @@ read -rp "Hmac Key Google : " -e hmac
     fi
     fi
 
-#install ssh ovpn
-#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "$green      Install SSH / WS               $NC"
-#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#sleep 2
-#clear
-#wget https://raw.githubusercontent.com/nanotechid/sv/script/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #Instal Xray
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green          Install XRAY              $NC"
@@ -181,7 +170,6 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 sleep 2
 clear
 wget https://raw.githubusercontent.com/nanotechid/sv/script/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
-#wget https://raw.githubusercontent.com/nanotechid/sv/script/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
@@ -213,12 +201,6 @@ echo " "
 echo "------------------------------------------------------------"
 echo ""
 echo "   >>> Service & Port"  | tee -a log-install.txt
-#echo "   - OpenSSH		: 22"  | tee -a log-install.txt
-#echo "   - SSH Websocket	: 80" | tee -a log-install.txt
-#echo "   - SSH SSL Websocket	: 443" | tee -a log-install.txt
-#echo "   - Stunnel4		: 222, 777" | tee -a log-install.txt
-#echo "   - Dropbear		: 109, 143" | tee -a log-install.txt
-#echo "   - Badvpn		: 7100-7900" | tee -a log-install.txt
 echo "   - Nginx		: 81" | tee -a log-install.txt
 echo "   - Vmess TLS		: 443" | tee -a log-install.txt
 echo "   - Vmess None TLS	: 80" | tee -a log-install.txt
