@@ -1,7 +1,6 @@
 #!/bin/bash
 domain=$(cat /root/domain)
 sleep 1
-
 apt install curl socat wget socat cron zip -y
 
 # install fail2ban
