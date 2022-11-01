@@ -105,32 +105,10 @@ clear
 END
 chmod 644 /root/.profile
 
-echo -e "[ ${green}INFO${NC} ] Preparing the install file"
-apt install git curl -y >/dev/null 2>&1
-apt install python -y >/dev/null 2>&1
-echo -e "[ ${green}INFO${NC} ] Aight good ... installation file is ready"
-sleep 2
-echo -ne "[ ${green}INFO${NC} ] Check permission : "
-
-PERMISSION
-if [ -f /home/needupdate ]; then
-red "Your script need to update first !"
-exit 0
-elif [ "$res" = "Permission Accepted..." ]; then
-green "Permission Accepted!"
-else
-red "Permission Denied!"
-rm setup.sh > /dev/null 2>&1
-sleep 10
-exit 0
-fi
-sleep 3
-
 mkdir -p /var/lib >/dev/null 2>&1
 echo "IP=" >> /var/lib/ipvps.conf
 
-echo ""
-wget -q https://raw.githubusercontent.com/nanotechid/sv/script/tools.sh;chmod +x tools.sh;./tools.sh
+#wget -q https://raw.githubusercontent.com/nanotechid/sv/script/tools.sh;chmod +x tools.sh;./tools.sh
 rm tools.sh
 clear
 yellow "Tambah domain anda untuk issue cert"
